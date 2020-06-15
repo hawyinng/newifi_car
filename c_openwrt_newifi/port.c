@@ -134,18 +134,18 @@ int OpenDev(char *Dev)
 int init_port()
 {
     int fd;
-
-	char *tty[] = {"/dev/ttyACM0","/dev/ttyACM1","/dev/ttyACM2","/dev/ttyACM3","/dev/ttyACM4"};
+	
+    char *tty[] = {"/dev/ttyACM0","/dev/ttyACM1","/dev/ttyACM2","/dev/ttyACM3","/dev/ttyACM4"};
     //char *dev  = "/dev/ttyUSB0";
     //char *dev  = "/dev/usb1";
-
-	//设置串口号
-	for(int i = 0; i <5; i++){
-	    fd = OpenDev(tty[i]);
-	    if(fd > 0){
-	    	break;
-	    }
+    
+    //设置串口号
+    for(int i = 0; i <5; i++){
+    	fd = OpenDev(tty[i]);
+	if(fd > 0){
+	    break;
 	}
+    }
 
     set_speed(fd,9600);
     if (set_Parity(fd,8,1,'N') == FALSE)  {
