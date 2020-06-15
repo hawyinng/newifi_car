@@ -5,4 +5,4 @@
 3. /ClientCar_wifi_car 源文件使用Qt5.14.2编译通过，android-build-debug.apk上传手机使用。ClientCar.app手机控制端。
 
 
-![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_12(1).jpg)
+![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_12.jpg)
