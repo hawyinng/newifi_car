@@ -17,10 +17,10 @@
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_4.PNG)
 
 # newifi路由器安装USB串口驱动：
-WinSCP远程连接newifi路由器，上传5个ipk驱动到/tmp目录安装。
+1. WinSCP远程连接newifi路由器，上传5个ipk驱动到/tmp目录安装。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_6.PNG)
 
-SSH连接newifi路由器，输入以下命令：
+2. SSH连接newifi路由器，输入以下命令：
 opkg install /tmp/kmod-usb-acm_4.14.172-1_mipsel_24kc.ipk --nodeps
 
 opkg install /tmp/kmod-usb-ohci_4.14.172-1_mipsel_24kc.ipk --nodeps
@@ -34,3 +34,4 @@ opkg install /tmp/kmod-usb-serial-ftdi_4.14.172-1_mipsel_24kc.ipk --nodeps
 驱动安装完成，reboot路由器。
  
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_7.PNG)
+![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_8.PNG)
