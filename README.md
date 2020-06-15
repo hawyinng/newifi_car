@@ -17,7 +17,7 @@
 3.SSH连接newifi路由器，输入命令“chmod +x c_openwrt_newifi”。c_openwrt_newifi文件，“属性”权限直接打勾也行。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_4.PNG)
 
-4. /root目录下，输入"./c_openwrt_newifi &"命令，或者输入"./start_newifi.sh"命令，运行c_openwrt_newifi服务端。
+4./root目录下，输入"./c_openwrt_newifi &"命令，或者输入"./start_newifi.sh"命令，运行c_openwrt_newifi服务端。
 
 # newifi路由器安装USB串口驱动：
 1.WinSCP远程连接newifi路由器，上传5个ipk驱动到/tmp目录安装。
