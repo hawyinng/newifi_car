@@ -1,0 +1,16 @@
+armeabi-v7a/main.obj
+armeabi-v7a/clientdialog.obj
+armeabi-v7a/plantest.obj
+armeabi-v7a/planthread.obj
+armeabi-v7a/listenthread.obj
+armeabi-v7a/qclienttcp.obj
+armeabi-v7a/backbutton.obj
+armeabi-v7a/radioback.obj
+armeabi-v7a/qrc_images.obj
+armeabi-v7a/moc_clientdialog.obj
+armeabi-v7a/moc_plantest.obj
+armeabi-v7a/moc_planthread.obj
+armeabi-v7a/moc_listenthread.obj
+armeabi-v7a/moc_qclienttcp.obj
+armeabi-v7a/moc_backbutton.obj
+armeabi-v7a/moc_radioback.obj
