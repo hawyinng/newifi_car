@@ -161,8 +161,8 @@ int send_port(int fd, char *cmd)
     int nwrite;
     //char buff[4];
 
-  	//memset(buff, 0x00, sizeof(buff));
-  	//memcpy(buff, cmd, sizeof(cmd));
+    //memset(buff, 0x00, sizeof(buff));
+    //memcpy(buff, cmd, sizeof(cmd));
 
     if((nwrite = write(fd, cmd, 1)) > 0)
     {
