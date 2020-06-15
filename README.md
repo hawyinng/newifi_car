@@ -13,5 +13,5 @@
 2.解压c_openwrt_newifi.zip，上传程序c_openwrt_newifi到“/root”目录下。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_2.PNG)
 
-3.SSH连接newifi路由器，输入“chmod +x c_openwrt_newifi”命令。
+3.SSH连接newifi路由器，输入命令“chmod +x c_openwrt_newifi”。c_openwrt_newifi文件，“属性”权限直接打勾也行。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_4.PNG)
