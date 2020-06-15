@@ -16,10 +16,10 @@ https://mirrors.tuna.tsinghua.edu.cn/openwrt/
 1.WinSCP远程登录newifi路由器“192.168.0.1”，SCP协议连接。用户名“root”，密码“password”。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_3.PNG)
 
-2.解压c_openwrt_newifi.zip，上传程序c_openwrt_newifi到“/”根目录下。
+2.解压c_openwrt_newifi.zip，上传程序c_openwrt_newifi和"start_newifi.sh"文件到“/”根目录下。  
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_2.PNG)
 
-3.SSH连接newifi路由器，“/”根目录下，输入命令“chmod +x c_openwrt_newifi”。c_openwrt_newifi文件，“属性”权限直接打勾也行。  
+3.SSH连接newifi路由器，“/”根目录下，输入“chmod +x c_openwrt_newifi”命令和“chmod +x start_newifi.sh”命令。c_openwrt_newifi文件，“属性”权限直接打勾也行。    
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_4.PNG)
 
 4.SSH连接newifi路由器，“/”根目录下，输入"./c_openwrt_newifi &"命令，或者输入"./start_newifi.sh"命令，运行c_openwrt_newifi服务端。  
