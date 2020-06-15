@@ -1,4 +1,7 @@
-# newifi_car
+# newifi_car  
+更新9-支持Trojan_地址192.168.0.1密码password-s-sysupgrade.bin -->> 厂商最新固件，支持openwrt r19.07.2。
+https://mirrors.tuna.tsinghua.edu.cn/openwrt/  
+
 # 源程序编译说明
 1. /Arduino/sketch_jun12c/sketch_jun12c.ino 编译上传Arduino UNO R3开发板。
 2. /c_openwrt_newifi 源文件在Ubuntu_16.04 Linux系统下使用OpenWrt-Toolchain-ramips-mt7621_gcc-5.3.0_musl-1.1.16.Linux-x86_64交叉编译通过，c_openwrt_newifi可执行文件server端上传newifi路由器使用。
