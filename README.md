@@ -8,8 +8,9 @@
 
 # 安装程序说明
 1.WinSCP远程登录newifi路由器“192.168.0.1”，SCP协议连接。用户名“root”，密码“password”。
+![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_3.PNG)
 
-2.解压c_openwrt_newifi.zip，上传程序c_openwrt_newifi到“/root”目录下。，
+2.解压c_openwrt_newifi.zip，上传程序c_openwrt_newifi到“/root”目录下。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_2.PNG)
 
 3.SSH连接newifi路由器，输入“chmod +x c_openwrt_newifi”命令。
