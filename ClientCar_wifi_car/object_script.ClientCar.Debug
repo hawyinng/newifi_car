@@ -1,0 +1,16 @@
+debug/main.o
+debug/clientdialog.o
+debug/plantest.o
+debug/planthread.o
+debug/listenthread.o
+debug/qclienttcp.o
+debug/backbutton.o
+debug/radioback.o
+debug/qrc_images.o
+debug/moc_clientdialog.o
+debug/moc_plantest.o
+debug/moc_planthread.o
+debug/moc_listenthread.o
+debug/moc_qclienttcp.o
+debug/moc_backbutton.o
+debug/moc_radioback.o
