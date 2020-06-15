@@ -1,5 +1,5 @@
 # newifi_car  
-移动wifi热点-路由器吉普车。
+移动wifi热点-路由器吉普车。  
 更新9-支持Trojan_地址192.168.0.1密码password-s-sysupgrade.bin -->> 厂商最新固件，支持openwrt r19.07.2。
 https://mirrors.tuna.tsinghua.edu.cn/openwrt/  
 
