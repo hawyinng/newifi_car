@@ -36,8 +36,7 @@ opkg install /tmp/kmod-usb-serial-ftdi_4.14.172-1_mipsel_24kc.ipk --nodeps
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_7.PNG)
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_8.PNG)
 
-
 Arduino USB数据线插入路由器，/dev目录下有ttyASM0(或者ttyASM1)接口（/dev/ttyASM0或者/dev/ttyASM1）-->> Arduino开发板连接完成。
-PS: /dev目录下有ttyASM0(或者ttyASM1)接口，连上小车没反应，热插拔几下USB接口，重新运行c_openwrt_newifi服务端。
+PS：/dev目录下有ttyASM0(或者ttyASM1)接口，连上小车没反应，热插拔几下USB接口，重新运行c_openwrt_newifi服务端。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_9.PNG)。
 
