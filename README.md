@@ -15,3 +15,18 @@
 
 3.SSH连接newifi路由器，输入命令“chmod +x c_openwrt_newifi”。c_openwrt_newifi文件，“属性”权限直接打勾也行。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_4.PNG)
+
+# newifi路由器安装USB串口驱动：
+WinSCP远程连接newifi路由器，上传5个ipk驱动到/tmp目录安装。
+![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_7.PNG)
+
+SSH连接newifi路由器，输入以下命令。
+opkg install /tmp/kmod-usb-acm_4.14.172-1_mipsel_24kc.ipk --nodeps
+
+opkg install /tmp/kmod-usb-ohci_4.14.172-1_mipsel_24kc.ipk --nodeps
+
+opkg install /tmp/kmod-usb2_4.14.172-1_mipsel_24kc.ipk --nodeps
+
+opkg install /tmp/kmod-usb-serial_4.14.172-1_mipsel_24kc.ipk --nodeps
+
+opkg install /tmp/kmod-usb-serial-ftdi_4.14.172-1_mipsel_24kc.ipk --nodeps
