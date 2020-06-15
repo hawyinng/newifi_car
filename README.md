@@ -23,7 +23,7 @@
 1.WinSCP远程连接newifi路由器，上传5个ipk驱动到/tmp目录安装。
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_6.PNG)
 
-2.SSH连接newifi路由器，输入以下命令：
+2.SSH连接newifi路由器，输入以下命令：  
 opkg install /tmp/kmod-usb-acm_4.14.172-1_mipsel_24kc.ipk --nodeps
 
 opkg install /tmp/kmod-usb-ohci_4.14.172-1_mipsel_24kc.ipk --nodeps
@@ -39,8 +39,7 @@ opkg install /tmp/kmod-usb-serial-ftdi_4.14.172-1_mipsel_24kc.ipk --nodeps
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_7.PNG)
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_8.PNG)
 
-Arduino USB数据线插入路由器，/dev目录下有ttyASM0(或者ttyASM1)接口（/dev/ttyASM0或者/dev/ttyASM1）-->> 
-Arduino开发板连接完成。
-PS：/dev目录下有ttyASM0(或者ttyASM1)接口，连上小车没反应，热插拔几下USB接口，重新运行c_openwrt_newifi服务端。
+Arduino USB数据线插入路由器，/dev目录下有ttyASM0(或者ttyASM1)接口（/dev/ttyASM0或者/dev/ttyASM1）-->> Arduino开发板连接完成。  
+PS：/dev目录下有ttyASM0(或者ttyASM1)接口，连上小车没反应，热插拔几下USB接口，重新运行c_openwrt_newifi服务端。  
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_9.PNG)。
 
