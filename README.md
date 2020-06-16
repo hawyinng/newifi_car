@@ -12,7 +12,7 @@ https://mirrors.tuna.tsinghua.edu.cn/openwrt/
 ****
 
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_12.jpg) ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_4.jpg)   
-![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_7.jpg) ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_6_1.jpg)  
+![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_7.jpg) ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_6_1.jpg) ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_2.jpg)   
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_5.PNG)   
 
 # 安装程序说明
