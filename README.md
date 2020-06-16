@@ -21,7 +21,7 @@ https://mirrors.tuna.tsinghua.edu.cn/openwrt/
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_3.PNG)
 
 3.解压c_openwrt_newifi.zip，上传程序c_openwrt_newifi和"start_newifi.sh"文件到“/”根目录下。  
-![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_2.PNG)
+![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_1.PNG)
 
 4.SSH连接newifi路由器，“/”根目录下，输入“chmod +x c_openwrt_newifi”命令和“chmod +x start_newifi.sh”命令。c_openwrt_newifi文件，“属性”权限直接打勾也行。    
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_4.PNG)
