@@ -236,6 +236,7 @@ void sig_handler(int signo)
     printf("child process %d stop.\n", signo);
     int pid = -1;
     int stat;
+    
     while(pid=waitpid(-1, &stat, WNOHANG)>0);
 }
 
