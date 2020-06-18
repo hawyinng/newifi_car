@@ -43,6 +43,8 @@ public:
     QString ip;
     int port;
 
+    QString routerIP;
+
     QClientTCP *tcpsocket = NULL;
     bool p_connect = false;
 
@@ -86,6 +88,9 @@ signals:
     void errReadWriteBuff(const int id);
     void recvBuff(QString str);
     void errOpenFile(int i);
+
+public slots:
+    void set_routerIP(QString ip);
 
 };
 

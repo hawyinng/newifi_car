@@ -17,12 +17,16 @@ PlanTest::PlanTest(QObject *parent) : QObject(parent)
     #ifdef WINDOWS
         openfile();
     #else
-        this->ip = "192.168.0.1";
+        //this->ip = "192.168.0.1";
         this->port = 8989;
     #endif
 
     //tcpsocket = new QClientTCP;
 
+}
+
+void PlanTest::set_routerIP(QString ip){
+    this->routerIP = ip;
 }
 
 void PlanTest::sleep(int s)
@@ -85,7 +89,8 @@ bool PlanTest::openConn()
 
     //建立socket连接
     if(!p_connect){
-        p_connect = tcpsocket->connectToServer(this->ip, this->port);
+        //p_connect = tcpsocket->connectToServer(this->ip, this->port);
+        p_connect = tcpsocket->connectToServer(this->routerIP, this->port);
         if(p_connect == false)
         {
             emit recvOpenConn(0);
@@ -103,11 +108,13 @@ bool PlanTest::openConn()
 //关闭连接
 bool PlanTest::closeConn()
 {
-    if(tcpsocket->closeToServer()){
-        p_connect = false;
-        emit recvCloseConn(1);
+    if(p_connect){
+        if(tcpsocket->closeToServer()){
+            p_connect = false;
+            emit recvCloseConn(1);
 
-        return true;
+            return true;
+        }
     }
 
     return false;

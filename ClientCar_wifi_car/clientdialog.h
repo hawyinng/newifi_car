@@ -15,6 +15,7 @@
 #include "planmovetothread.h"
 #include "planthread.h"
 #include "listenthread.h"
+#include <QtAndroid>
 
 namespace Ui {
 class Clientdialog;
@@ -41,8 +42,10 @@ signals:
     void setPlanID(int i);
     void _setPlanID(int i);
     void setStop(bool stoped);
-    void stopthread();
+    void stopPthread();
+    void stopLthread();
     void isstop(bool stop);
+    void setIP(QString ip);
 
 public slots:
     int openConn();
@@ -86,6 +89,17 @@ private slots:
     void on_Clientdialog_destroyed();
 
     void closeEvent(QCloseEvent *event);
+
+    void init_lineEdit_IP();
+
+    void on_pushButton_modify_pressed();
+
+    void on_pushButton_save_pressed();
+
+    void open_file();
+    void save_file();
+
+    bool checkPermission();
 
 private:
     Ui::Clientdialog *ui;

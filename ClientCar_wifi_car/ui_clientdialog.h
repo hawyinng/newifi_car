@@ -12,8 +12,12 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -49,22 +53,34 @@ public:
     QWidget *gridLayoutWidget_4;
     QGridLayout *gridLayout_4;
     QGroupBox *groupBox;
-    QWidget *verticalLayoutWidget_2;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
     QRadioButton *radioPlan1;
     QRadioButton *radioPlan2;
     QRadioButton *radioPlan3;
-    QWidget *verticalLayoutWidget_3;
     QVBoxLayout *verticalLayout_3;
     QPushButton *planRun;
     QPushButton *planStop;
+    QSpacerItem *horizontalSpacer_11;
     QWidget *gridLayoutWidget_5;
     QGridLayout *gridLayout_5;
-    QSpacerItem *horizontalSpacer_3;
     QGridLayout *gridLayout_2;
     QPushButton *closeButton;
     QPushButton *connButton;
     QTextBrowser *textBrowser;
+    QSpacerItem *horizontalSpacer_3;
+    QFrame *frame;
+    QWidget *gridLayoutWidget_2;
+    QGridLayout *gridLayout_3;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_IP;
+    QLineEdit *lineEdit_IP;
+    QSpacerItem *horizontalSpacer_8;
+    QPushButton *pushButton_modify;
+    QSpacerItem *horizontalSpacer_9;
+    QPushButton *pushButton_save;
+    QSpacerItem *horizontalSpacer_10;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
     QMenuBar *menuBar;
@@ -85,7 +101,7 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayoutWidget = new QWidget(centralWidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(20, 990, 1041, 771));
+        gridLayoutWidget->setGeometry(QRect(20, 1080, 1041, 771));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -203,7 +219,7 @@ public:
 
         gridLayoutWidget_4 = new QWidget(centralWidget);
         gridLayoutWidget_4->setObjectName(QString::fromUtf8("gridLayoutWidget_4"));
-        gridLayoutWidget_4->setGeometry(QRect(30, 520, 1021, 451));
+        gridLayoutWidget_4->setGeometry(QRect(30, 620, 1021, 451));
         gridLayout_4 = new QGridLayout(gridLayoutWidget_4);
         gridLayout_4->setSpacing(6);
         gridLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -211,79 +227,91 @@ public:
         gridLayout_4->setContentsMargins(0, 0, 0, 0);
         groupBox = new QGroupBox(gridLayoutWidget_4);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Preferred);
+        QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Ignored);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
         groupBox->setSizePolicy(sizePolicy3);
-        groupBox->setMinimumSize(QSize(1000, 100));
-        verticalLayoutWidget_2 = new QWidget(groupBox);
-        verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(20, 60, 341, 361));
-        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
+        groupBox->setMinimumSize(QSize(1000, 0));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Arial"));
+        font1.setPointSize(16);
+        font1.setBold(true);
+        font1.setWeight(75);
+        groupBox->setFont(font1);
+        groupBox->setContextMenuPolicy(Qt::NoContextMenu);
+        horizontalLayoutWidget = new QWidget(groupBox);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(10, 70, 981, 371));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        radioPlan1 = new QRadioButton(verticalLayoutWidget_2);
+        radioPlan1 = new QRadioButton(horizontalLayoutWidget);
         radioPlan1->setObjectName(QString::fromUtf8("radioPlan1"));
-        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(radioPlan1->sizePolicy().hasHeightForWidth());
-        radioPlan1->setSizePolicy(sizePolicy4);
-        radioPlan1->setMinimumSize(QSize(0, 50));
+        sizePolicy2.setHeightForWidth(radioPlan1->sizePolicy().hasHeightForWidth());
+        radioPlan1->setSizePolicy(sizePolicy2);
+        radioPlan1->setMinimumSize(QSize(0, 0));
         radioPlan1->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout_2->addWidget(radioPlan1);
 
-        radioPlan2 = new QRadioButton(verticalLayoutWidget_2);
+        radioPlan2 = new QRadioButton(horizontalLayoutWidget);
         radioPlan2->setObjectName(QString::fromUtf8("radioPlan2"));
-        radioPlan2->setMinimumSize(QSize(0, 50));
+        sizePolicy2.setHeightForWidth(radioPlan2->sizePolicy().hasHeightForWidth());
+        radioPlan2->setSizePolicy(sizePolicy2);
+        radioPlan2->setMinimumSize(QSize(0, 0));
 
         verticalLayout_2->addWidget(radioPlan2);
 
-        radioPlan3 = new QRadioButton(verticalLayoutWidget_2);
+        radioPlan3 = new QRadioButton(horizontalLayoutWidget);
         radioPlan3->setObjectName(QString::fromUtf8("radioPlan3"));
-        radioPlan3->setMinimumSize(QSize(0, 50));
+        sizePolicy2.setHeightForWidth(radioPlan3->sizePolicy().hasHeightForWidth());
+        radioPlan3->setSizePolicy(sizePolicy2);
+        radioPlan3->setMinimumSize(QSize(0, 0));
 
         verticalLayout_2->addWidget(radioPlan3);
 
-        verticalLayoutWidget_3 = new QWidget(groupBox);
-        verticalLayoutWidget_3->setObjectName(QString::fromUtf8("verticalLayoutWidget_3"));
-        verticalLayoutWidget_3->setGeometry(QRect(460, 30, 471, 414));
-        verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
+
+        horizontalLayout_2->addLayout(verticalLayout_2);
+
+        verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        planRun = new QPushButton(verticalLayoutWidget_3);
+        planRun = new QPushButton(horizontalLayoutWidget);
         planRun->setObjectName(QString::fromUtf8("planRun"));
-        planRun->setMinimumSize(QSize(0, 100));
+        planRun->setMinimumSize(QSize(0, 50));
 
         verticalLayout_3->addWidget(planRun);
 
-        planStop = new QPushButton(verticalLayoutWidget_3);
+        planStop = new QPushButton(horizontalLayoutWidget);
         planStop->setObjectName(QString::fromUtf8("planStop"));
-        planStop->setMinimumSize(QSize(0, 100));
+        planStop->setMinimumSize(QSize(0, 50));
 
         verticalLayout_3->addWidget(planStop);
+
+
+        horizontalLayout_2->addLayout(verticalLayout_3);
+
+        horizontalSpacer_11 = new QSpacerItem(100, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_11);
 
 
         gridLayout_4->addWidget(groupBox, 0, 0, 1, 1);
 
         gridLayoutWidget_5 = new QWidget(centralWidget);
         gridLayoutWidget_5->setObjectName(QString::fromUtf8("gridLayoutWidget_5"));
-        gridLayoutWidget_5->setGeometry(QRect(30, 10, 1016, 491));
+        gridLayoutWidget_5->setGeometry(QRect(20, 120, 1041, 491));
         gridLayout_5 = new QGridLayout(gridLayoutWidget_5);
         gridLayout_5->setSpacing(6);
         gridLayout_5->setContentsMargins(11, 11, 11, 11);
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        gridLayout_5->setContentsMargins(0, 0, 0, 0);
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_3, 2, 2, 1, 1);
-
+        gridLayout_5->setContentsMargins(5, 5, 5, 5);
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setSpacing(6);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
@@ -300,13 +328,96 @@ public:
         gridLayout_2->addWidget(connButton, 0, 0, 1, 1);
 
 
-        gridLayout_5->addLayout(gridLayout_2, 2, 3, 1, 1);
+        gridLayout_5->addLayout(gridLayout_2, 1, 3, 1, 1);
 
         textBrowser = new QTextBrowser(gridLayoutWidget_5);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setMinimumSize(QSize(600, 0));
 
-        gridLayout_5->addWidget(textBrowser, 2, 1, 1, 1);
+        gridLayout_5->addWidget(textBrowser, 1, 1, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_5->addItem(horizontalSpacer_3, 1, 2, 1, 1);
+
+        frame = new QFrame(centralWidget);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(10, 10, 1061, 100));
+        frame->setMinimumSize(QSize(0, 100));
+        frame->setFrameShape(QFrame::Box);
+        frame->setFrameShadow(QFrame::Raised);
+        frame->setLineWidth(2);
+        gridLayoutWidget_2 = new QWidget(frame);
+        gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
+        gridLayoutWidget_2->setGeometry(QRect(10, 9, 1041, 81));
+        gridLayout_3 = new QGridLayout(gridLayoutWidget_2);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label_IP = new QLabel(gridLayoutWidget_2);
+        label_IP->setObjectName(QString::fromUtf8("label_IP"));
+        QSizePolicy sizePolicy4(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(label_IP->sizePolicy().hasHeightForWidth());
+        label_IP->setSizePolicy(sizePolicy4);
+        label_IP->setMinimumSize(QSize(0, 0));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Arial"));
+        font2.setPointSize(14);
+        font2.setBold(true);
+        font2.setWeight(75);
+        label_IP->setFont(font2);
+        label_IP->setFrameShape(QFrame::Box);
+
+        horizontalLayout->addWidget(label_IP);
+
+        lineEdit_IP = new QLineEdit(gridLayoutWidget_2);
+        lineEdit_IP->setObjectName(QString::fromUtf8("lineEdit_IP"));
+        sizePolicy4.setHeightForWidth(lineEdit_IP->sizePolicy().hasHeightForWidth());
+        lineEdit_IP->setSizePolicy(sizePolicy4);
+        lineEdit_IP->setMinimumSize(QSize(200, 0));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Arial"));
+        font3.setPointSize(14);
+        lineEdit_IP->setFont(font3);
+
+        horizontalLayout->addWidget(lineEdit_IP);
+
+        horizontalSpacer_8 = new QSpacerItem(150, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_8);
+
+        pushButton_modify = new QPushButton(gridLayoutWidget_2);
+        pushButton_modify->setObjectName(QString::fromUtf8("pushButton_modify"));
+        sizePolicy4.setHeightForWidth(pushButton_modify->sizePolicy().hasHeightForWidth());
+        pushButton_modify->setSizePolicy(sizePolicy4);
+        pushButton_modify->setMinimumSize(QSize(0, 0));
+
+        horizontalLayout->addWidget(pushButton_modify);
+
+        horizontalSpacer_9 = new QSpacerItem(100, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_9);
+
+        pushButton_save = new QPushButton(gridLayoutWidget_2);
+        pushButton_save->setObjectName(QString::fromUtf8("pushButton_save"));
+        sizePolicy4.setHeightForWidth(pushButton_save->sizePolicy().hasHeightForWidth());
+        pushButton_save->setSizePolicy(sizePolicy4);
+        pushButton_save->setMinimumSize(QSize(0, 0));
+
+        horizontalLayout->addWidget(pushButton_save);
+
+        horizontalSpacer_10 = new QSpacerItem(150, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_10);
+
+
+        gridLayout_3->addLayout(horizontalLayout, 0, 0, 1, 1);
 
         Clientdialog->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(Clientdialog);
@@ -351,6 +462,9 @@ public:
         planStop->setText(QCoreApplication::translate("Clientdialog", "\345\201\234\346\255\242", nullptr));
         closeButton->setText(QCoreApplication::translate("Clientdialog", "\345\205\263\351\227\255\347\275\221\347\273\234", nullptr));
         connButton->setText(QCoreApplication::translate("Clientdialog", "\350\277\236\346\216\245\347\275\221\347\273\234", nullptr));
+        label_IP->setText(QCoreApplication::translate("Clientdialog", "  \350\267\257\347\224\261\345\231\250 IP\357\274\232", nullptr));
+        pushButton_modify->setText(QCoreApplication::translate("Clientdialog", " \344\277\256\346\224\271", nullptr));
+        pushButton_save->setText(QCoreApplication::translate("Clientdialog", "\344\277\235\345\255\230", nullptr));
         menuClientCar->setTitle(QCoreApplication::translate("Clientdialog", "ClientCar", nullptr));
     } // retranslateUi
 

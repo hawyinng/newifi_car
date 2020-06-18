@@ -5,6 +5,7 @@
 #include "plantest.h"
 #include <QThread>
 #include "planthread.h"
+#include <QMutex>
 
 class ListenThread : public PlanThread
 {
@@ -12,6 +13,14 @@ class ListenThread : public PlanThread
 
 public:
     ListenThread();
+    ListenThread(QString ip);
+
+private:
+    volatile bool stopped;
+    QMutex mutex;
+
+protected:
+    void run();
 
 public slots:
     void setPlan(int i);

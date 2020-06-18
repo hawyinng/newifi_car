@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PlanTest_t {
-    QByteArrayData data[10];
-    char stringdata0[84];
+    QByteArrayData data[12];
+    char stringdata0[100];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,12 +41,14 @@ QT_MOC_LITERAL(5, 39, 16), // "errReadWriteBuff"
 QT_MOC_LITERAL(6, 56, 2), // "id"
 QT_MOC_LITERAL(7, 59, 8), // "recvBuff"
 QT_MOC_LITERAL(8, 68, 3), // "str"
-QT_MOC_LITERAL(9, 72, 11) // "errOpenFile"
+QT_MOC_LITERAL(9, 72, 11), // "errOpenFile"
+QT_MOC_LITERAL(10, 84, 12), // "set_routerIP"
+QT_MOC_LITERAL(11, 97, 2) // "ip"
 
     },
     "PlanTest\0recvOpenConn\0\0i\0recvCloseConn\0"
     "errReadWriteBuff\0id\0recvBuff\0str\0"
-    "errOpenFile"
+    "errOpenFile\0set_routerIP\0ip"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +58,7 @@ static const uint qt_meta_data_PlanTest[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,11 +66,14 @@ static const uint qt_meta_data_PlanTest[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   39,    2, 0x06 /* Public */,
-       4,    1,   42,    2, 0x06 /* Public */,
-       5,    1,   45,    2, 0x06 /* Public */,
-       7,    1,   48,    2, 0x06 /* Public */,
-       9,    1,   51,    2, 0x06 /* Public */,
+       1,    1,   44,    2, 0x06 /* Public */,
+       4,    1,   47,    2, 0x06 /* Public */,
+       5,    1,   50,    2, 0x06 /* Public */,
+       7,    1,   53,    2, 0x06 /* Public */,
+       9,    1,   56,    2, 0x06 /* Public */,
+
+ // slots: name, argc, parameters, tag, flags
+      10,    1,   59,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -76,6 +81,9 @@ static const uint qt_meta_data_PlanTest[] = {
     QMetaType::Void, QMetaType::Int,    6,
     QMetaType::Void, QMetaType::QString,    8,
     QMetaType::Void, QMetaType::Int,    3,
+
+ // slots: parameters
+    QMetaType::Void, QMetaType::QString,   11,
 
        0        // eod
 };
@@ -91,6 +99,7 @@ void PlanTest::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 2: _t->errReadWriteBuff((*reinterpret_cast< const int(*)>(_a[1]))); break;
         case 3: _t->recvBuff((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 4: _t->errOpenFile((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 5: _t->set_routerIP((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -162,13 +171,13 @@ int PlanTest::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

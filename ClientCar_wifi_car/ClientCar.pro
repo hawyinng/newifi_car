@@ -25,8 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #CONFIG +=console
 
 SOURCES += \
-        main.cpp \
-        clientdialog.cpp \
+    main.cpp \
+    clientdialog.cpp \
     plantest.cpp \
     planthread.cpp \
     listenthread.cpp \
@@ -35,7 +35,7 @@ SOURCES += \
     radioback.cpp
 
 HEADERS += \
-        clientdialog.h \
+    clientdialog.h \
     plantest.h \
     planthread.h \
     listenthread.h \
@@ -56,7 +56,7 @@ QT += network
 #DISTFILES += \
 #   AndroidThread.java
 
-#QT += androidextras
+QT += androidextras
 
 DISTFILES +=
 

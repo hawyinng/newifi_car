@@ -13,10 +13,10 @@ EQ            = =
 
 CC            = C:\Users\Lyn\Documents\Wifi_robot_software\android-ndk-r21-windows-x86_64\android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/bin/clang
 CXX           = C:\Users\Lyn\Documents\Wifi_robot_software\android-ndk-r21-windows-x86_64\android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_ANDROIDEXTRAS_LIB -DQT_CORE_LIB
 CFLAGS        = -target armv7a-linux-androideabi21 -fno-limit-debug-info -fPIC -fstack-protector-strong -DANDROID -g -marm -O0 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -target armv7a-linux-androideabi21 -fno-limit-debug-info -fPIC -fstack-protector-strong -DANDROID -g -marm -O0 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -IC:\Qt\Qt5.14.2\5.14.2\android\include -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtGui -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtNetwork -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtCore -Iarmeabi-v7a -I. -IC:\Qt\Qt5.14.2\5.14.2\android\mkspecs\android-clang
+INCPATH       = -I. -IC:\Qt\Qt5.14.2\5.14.2\android\include -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtGui -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtNetwork -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras -IC:\Qt\Qt5.14.2\5.14.2\android\include\QtCore -Iarmeabi-v7a -I. -IC:\Qt\Qt5.14.2\5.14.2\android\mkspecs\android-clang
 QMAKE         = C:\Qt\Qt5.14.2\5.14.2\android\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -39,7 +39,7 @@ DISTNAME      = libClientCar_armeabi-v7a.so1.0.0
 DISTDIR = C:\Users\Lyn\Documents\Wifi_robot_software\OpenWrt_Project\ClientCar_wifi_car\armeabi-v7a\libClientCar_armeabi-v7a.so1.0.0
 LINK          = C:\Users\Lyn\Documents\Wifi_robot_software\android-ndk-r21-windows-x86_64\android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++ -target armv7a-linux-androideabi21 -fno-limit-debug-info
 LFLAGS        = -Wl,-soname,libClientCar_armeabi-v7a.so -Wl,--build-id=sha1 -Wl,--no-undefined -Wl,-z,noexecstack -shared
-LIBS          = $(SUBLIBS) C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5Widgets_armeabi-v7a.so C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5Gui_armeabi-v7a.so C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5Network_armeabi-v7a.so C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5Core_armeabi-v7a.so -lGLESv2   -llog -lz -lm -ldl -lc
+LIBS          = $(SUBLIBS) C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5Widgets_armeabi-v7a.so C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5Gui_armeabi-v7a.so C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5Network_armeabi-v7a.so C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5AndroidExtras_armeabi-v7a.so C:/Qt/Qt5.14.2/5.14.2/android/lib/libQt5Core_armeabi-v7a.so -lGLESv2   -llog -lz -lm -ldl -lc
 AR            = C:\Users\Lyn\Documents\Wifi_robot_software\android-ndk-r21-windows-x86_64\android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-ar cqs
 RANLIB        = C:\Users\Lyn\Documents\Wifi_robot_software\android-ndk-r21-windows-x86_64\android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/bin/arm-linux-androideabi-ranlib
 SED           = $(QMAKE) -install sed
@@ -485,9 +485,13 @@ armeabi-v7a\moc_clientdialog.cpp: clientdialog.h \
 		planthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QMutex \
 		listenthread.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\QtAndroid \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidfunctions.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidextrasglobal.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidjniobject.h \
 		armeabi-v7a\moc_predefs.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include clientdialog.h -o armeabi-v7a\moc_clientdialog.cpp
+	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtAndroidExtras -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include/c++ -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include clientdialog.h -o armeabi-v7a\moc_clientdialog.cpp
 
 armeabi-v7a\moc_plantest.cpp: plantest.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QMainWindow \
@@ -788,7 +792,7 @@ armeabi-v7a\moc_plantest.cpp: plantest.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtNetwork\qtnetworkversion.h \
 		armeabi-v7a\moc_predefs.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include plantest.h -o armeabi-v7a\moc_plantest.cpp
+	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtAndroidExtras -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include/c++ -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include plantest.h -o armeabi-v7a\moc_plantest.cpp
 
 armeabi-v7a\moc_planthread.cpp: planthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QObject \
@@ -1092,7 +1096,7 @@ armeabi-v7a\moc_planthread.cpp: planthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QMutex \
 		armeabi-v7a\moc_predefs.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include planthread.h -o armeabi-v7a\moc_planthread.cpp
+	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtAndroidExtras -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include/c++ -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include planthread.h -o armeabi-v7a\moc_planthread.cpp
 
 armeabi-v7a\moc_listenthread.cpp: listenthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QObject \
@@ -1397,7 +1401,7 @@ armeabi-v7a\moc_listenthread.cpp: listenthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QMutex \
 		armeabi-v7a\moc_predefs.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include listenthread.h -o armeabi-v7a\moc_listenthread.cpp
+	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtAndroidExtras -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include/c++ -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include listenthread.h -o armeabi-v7a\moc_listenthread.cpp
 
 armeabi-v7a\moc_qclienttcp.cpp: qclienttcp.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QObject \
@@ -1662,7 +1666,7 @@ armeabi-v7a\moc_qclienttcp.cpp: qclienttcp.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtNetwork\qtnetworkversion.h \
 		armeabi-v7a\moc_predefs.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include qclienttcp.h -o armeabi-v7a\moc_qclienttcp.cpp
+	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtAndroidExtras -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include/c++ -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include qclienttcp.h -o armeabi-v7a\moc_qclienttcp.cpp
 
 armeabi-v7a\moc_backbutton.cpp: backbutton.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QObject \
@@ -1775,7 +1779,7 @@ armeabi-v7a\moc_backbutton.cpp: backbutton.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qtouchdevice.h \
 		armeabi-v7a\moc_predefs.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include backbutton.h -o armeabi-v7a\moc_backbutton.cpp
+	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtAndroidExtras -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include/c++ -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include backbutton.h -o armeabi-v7a\moc_backbutton.cpp
 
 armeabi-v7a\moc_radioback.cpp: radioback.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QObject \
@@ -1888,7 +1892,7 @@ armeabi-v7a\moc_radioback.cpp: radioback.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qtouchdevice.h \
 		armeabi-v7a\moc_predefs.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include radioback.h -o armeabi-v7a\moc_radioback.cpp
+	C:\Qt\Qt5.14.2\5.14.2\android\bin\moc.exe $(DEFINES) --include C:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car/armeabi-v7a/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/android/mkspecs/android-clang -IC:/Users/Lyn/Documents/Wifi_robot_software/OpenWrt_Project/ClientCar_wifi_car -IC:/Qt/Qt5.14.2/5.14.2/android/include -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtNetwork -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtAndroidExtras -IC:/Qt/Qt5.14.2/5.14.2/android/include/QtCore -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include/c++ -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/Users/Lyn/Documents/Wifi_robot_software/android-ndk-r21-windows-x86_64/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/include radioback.h -o armeabi-v7a\moc_radioback.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2220,6 +2224,10 @@ armeabi-v7a\main.obj: main.cpp clientdialog.h \
 		planthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QMutex \
 		listenthread.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\QtAndroid \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidfunctions.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidextrasglobal.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidjniobject.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QApplication \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qapplication.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qdesktopwidget.h \
@@ -2543,7 +2551,57 @@ armeabi-v7a\clientdialog.obj: clientdialog.cpp clientdialog.h \
 		planthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QMutex \
 		listenthread.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\QtAndroid \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidfunctions.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidextrasglobal.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidjniobject.h \
 		ui_clientdialog.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QAction \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qaction.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qactiongroup.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QApplication \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qapplication.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qguiapplication.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qinputmethod.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QFrame \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qframe.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QGridLayout \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qgridlayout.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qlayout.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qboxlayout.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QGroupBox \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qgroupbox.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QHBoxLayout \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QLabel \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qlabel.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QLineEdit \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qlineedit.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qtextcursor.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qtextformat.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qpen.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qtextoption.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QMenu \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qmenu.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QMenuBar \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qmenubar.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QPushButton \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qpushbutton.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QRadioButton \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qradiobutton.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QSpacerItem \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QStatusBar \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qstatusbar.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QTextBrowser \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qtextbrowser.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qtextedit.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtGui\qtextdocument.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QToolBar \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qtoolbar.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QVBoxLayout \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o armeabi-v7a\clientdialog.obj clientdialog.cpp
 
@@ -2856,7 +2914,11 @@ armeabi-v7a\plantest.obj: plantest.cpp plantest.h \
 		planmovetothread.h \
 		planthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtCore\QMutex \
-		listenthread.h
+		listenthread.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\QtAndroid \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidfunctions.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidextrasglobal.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidjniobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o armeabi-v7a\plantest.obj plantest.cpp
 
 armeabi-v7a\planthread.obj: planthread.cpp planthread.h \
@@ -3167,7 +3229,11 @@ armeabi-v7a\planthread.obj: planthread.cpp planthread.h \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\QButtonGroup \
 		C:\Qt\Qt5.14.2\5.14.2\android\include\QtWidgets\qbuttongroup.h \
 		planmovetothread.h \
-		listenthread.h
+		listenthread.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\QtAndroid \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidfunctions.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidextrasglobal.h \
+		C:\Qt\Qt5.14.2\5.14.2\android\include\QtAndroidExtras\qandroidjniobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o armeabi-v7a\planthread.obj planthread.cpp
 
 armeabi-v7a\listenthread.obj: listenthread.cpp listenthread.h \

@@ -134,9 +134,9 @@ ADDED from C:\Users\Lyn\Documents\Wifi_robot_software\OpenWrt_Project\ClientCar_
 	android:name
 		ADDED from C:\Users\Lyn\Documents\Wifi_robot_software\OpenWrt_Project\ClientCar_wifi_car\android-build\AndroidManifest.xml:43:24-78
 meta-data#android.app.load_local_jars
-ADDED from C:\Users\Lyn\Documents\Wifi_robot_software\OpenWrt_Project\ClientCar_wifi_car\android-build\AndroidManifest.xml:44:13-126
+ADDED from C:\Users\Lyn\Documents\Wifi_robot_software\OpenWrt_Project\ClientCar_wifi_car\android-build\AndroidManifest.xml:44:13-150
 	android:value
-		ADDED from C:\Users\Lyn\Documents\Wifi_robot_software\OpenWrt_Project\ClientCar_wifi_car\android-build\AndroidManifest.xml:44:67-124
+		ADDED from C:\Users\Lyn\Documents\Wifi_robot_software\OpenWrt_Project\ClientCar_wifi_car\android-build\AndroidManifest.xml:44:67-148
 	android:name
 		ADDED from C:\Users\Lyn\Documents\Wifi_robot_software\OpenWrt_Project\ClientCar_wifi_car\android-build\AndroidManifest.xml:44:24-66
 meta-data#android.app.static_init_classes

@@ -9,8 +9,16 @@
 PlanThread::PlanThread()
 {
     this->plan = new PlanTest;
-    stopped = false;
-    isPlan = 0;
+    this->stopped = false;
+    this->isPlan = 0;
+    this->start();
+}
+
+PlanThread::PlanThread(QString ip){
+    this->plan = new PlanTest;
+    this->plan->set_routerIP(ip);
+    this->stopped = false;
+    this->isPlan = 0;
     this->start();
 }
 
@@ -37,11 +45,11 @@ void PlanThread::stopThread()
     thread.callMethod<void>("stop");
     QAndroidJniObject stringJinObj = thread.callObjectMethod<jstring>("getName");
     qDebug() << "thread name: " << stringJinObj.toString();
+    thread.callMethod<void>("interrupt");
+    this->isStop(true);
     */
-    //thread.callMethod<void>("interrupt");
     //childThread->terminate();
     //childThread->exit(0);
-    //this->isStop(true);
     this->terminate();
     this->isInterruptionRequested();
 #endif
@@ -64,6 +72,10 @@ void PlanThread::isStop(bool stoped)
     mutex.unlock();
 }
 
+bool PlanThread::getStopped(){
+    return stopped;
+}
+
 void PlanThread::run()
 {
 #ifndef WINDOWS
@@ -81,10 +93,12 @@ void PlanThread::run()
         switch(isPlan)
         {
            case 1:
+             qDebug() << "PlanThread openConn...";
              plan->openConn();
              isPlan = 0;
              break;
            case 2:
+             qDebug() << "PlanThread closeConn...";
              plan->closeConn();
              isPlan = 0;
              break;
@@ -105,6 +119,7 @@ void PlanThread::run()
              isPlan = 0;
              break;
            case 7:
+             qDebug() << "PlanThread make_stop...";
              plan->make_stop();
              isPlan = 0;
              break;

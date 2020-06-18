@@ -14,6 +14,7 @@ class PlanThread : public QThread
 
 public:
     PlanThread();
+    PlanThread(QString ip);
 
 #ifndef WINDOWS
     //QAndroidJniObject thread;
@@ -24,8 +25,8 @@ public:
 
     //QAndroidJniObject thread;
 
-    void isStop(bool stoped);
-
+    void isStop(bool stopped);
+    bool getStopped();
     void startThread();
 
 protected:
