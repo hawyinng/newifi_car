@@ -11,7 +11,7 @@ https://mirrors.tuna.tsinghua.edu.cn/openwrt/
 3./ClientCar_wifi_car 源文件使用Qt5.14.2，android 10 sdk编译通过，android-build-debug.apk上传手机使用。ClientCar.app手机控制端。  
 ****
 
-![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_12.jpg) ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_4.jpg)   
+![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_13.jpg) ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_4.jpg)   
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_6_1.jpg) ![image](https://github.com/hawyinng/newifi_car/blob/master/images/IMG_2.jpg)   
 ![image](https://github.com/hawyinng/newifi_car/blob/master/images/newifi_5.PNG)   
 
