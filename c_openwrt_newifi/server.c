@@ -64,8 +64,8 @@ int main()
         //fork函数的并发服务器
         //开启子进程服务客户,已打开描述符在父子进程间共享
         //子进程描述符为父进程的副本
-        signal(SIGCHLD, sig_handler);
-        //signal(SIGCHLD, SIG_IGN);
+        //signal(SIGCHLD, sig_handler);
+        signal(SIGCHLD, SIG_IGN);
         if((pid = fork()) == 0)
         {
             close(listenfd);  //关闭子进程的监听套接字
@@ -236,7 +236,6 @@ void sig_handler(int signo)
     printf("child process %d stop.\n", signo);
     int pid = -1;
     int stat;
-    
-    while(pid=waitpid(-1, &stat, WNOHANG)>0);
+    while( pid=waitpid(0, &stat, WNOHANG) );
 }
 
