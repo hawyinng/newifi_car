@@ -68,7 +68,7 @@ Clientdialog::~Clientdialog()
     delete ui;
 }
 
-//æ‰“å¼€è¿æ¥
+//´ò¿ªÁ¬½Ó
 int Clientdialog::openConn()
 {
     ui->connButton->setDisabled(true);
@@ -83,7 +83,7 @@ int Clientdialog::openConn()
     return 0;
 }
 
-//å…³é—­è¿æ¥
+//¹Ø±ÕÁ¬½Ó
 int Clientdialog::closeConn()
 {
     ui->connButton->setDisabled(false);
@@ -127,40 +127,43 @@ void Clientdialog::make_stop()
 
 void Clientdialog::plan_run()
 {
-   planThread->startThread();
+    this->planThread->startThread();
 
-   ui->planRun->setDisabled(true);
-   ui->planStop->setDisabled(false);
+    ui->planRun->setDisabled(true);
+    ui->planStop->setDisabled(false);
 
-   ui->connButton->setDisabled(true);
-   ui->closeButton->setDisabled(true);
+    ui->connButton->setDisabled(true);
+    ui->closeButton->setDisabled(true);
 
-   switch(this->planBtnGroup.checkedId())
-   {
-      case 0:
-        emit setPlanID(10);
-        break;
-      case 1:
-        emit setPlanID(11);
-        break;
-      case 2:
-        emit setPlanID(12);
-        break;
-   }
+    ui->pushButton_modify->setEnabled(false);
 
+    switch(this->planBtnGroup.checkedId())
+    {
+        case 0:
+          emit setPlanID(10);
+          break;
+        case 1:
+          emit setPlanID(11);
+          break;
+        case 2:
+          emit setPlanID(12);
+          break;
+    }
 }
 
 void Clientdialog::plan_stop()
 {
+    ui->pushButton_modify->setEnabled(true);
+
 #ifdef WINDOWS
     planThread->terminate();
     emit _setPlanID(7);
 #endif
 #ifndef WINDOWS
-    if(this->planThread->isRunning()){
-        qDebug() << "stopthread..." << this->planThread->isRunning();
-        this->planThread->closeConn(); //å…³é—­ç«¯å£
-        emit stopPthread();   //çº¿ç¨‹é‡Œé¢ç›´æ¥ä¸­æ–­çº¿ç¨‹
+    qDebug() << "stopthread..." << this->planThread->plan->get_p_connect();
+    if(this->planThread->plan->get_p_connect()){
+        this->planThread->closeConn(); //¹Ø±Õ¶Ë¿Ú
+        emit stopPthread();   //Ïß³ÌÀïÃæÖ±½ÓÖĞ¶ÏÏß³Ì
         QThread::msleep(50);
         emit _setPlanID(7);
     }
@@ -177,12 +180,12 @@ void Clientdialog::errRWBuff(int i)
     {
         case 0:
         #ifdef WINDOWS
-            QMessageBox::warning(this, QString::fromLocal8Bit("å‘é€æ•°æ®"), QString::fromLocal8Bit("å‘é€æ•°æ®é”™è¯¯"));
+            QMessageBox::warning(this, QString::fromLocal8Bit("·¢ËÍÊı¾İ"), QString::fromLocal8Bit("·¢ËÍÊı¾İ´íÎó"));
         #endif
             break;
         case 1:
         #ifdef WINDOWS
-            QMessageBox::warning(this, QString::fromLocal8Bit("æ¥æ”¶æ•°æ®"), QString::fromLocal8Bit("æ¥æ”¶æ•°æ®é”™è¯¯"));
+            QMessageBox::warning(this, QString::fromLocal8Bit("½ÓÊÕÊı¾İ"), QString::fromLocal8Bit("½ÓÊÕÊı¾İ´íÎó"));
         #endif
             break;
     }
@@ -197,9 +200,9 @@ void Clientdialog::recvbuff(QString buff)
 void Clientdialog::errOpenfile(int i)
 {
     if(i == 0)
-        ui->textBrowser->insertPlainText(QString::fromLocal8Bit("è¯»å–é…ç½®æ–‡ä»¶é”™è¯¯ï¼"));
+        ui->textBrowser->insertPlainText(QString::fromLocal8Bit("¶ÁÈ¡ÅäÖÃÎÄ¼ş´íÎó£¡"));
     if(i == 1)
-        ui->textBrowser->insertPlainText(QString::fromLocal8Bit("è¯»å–é…ç½®æ–‡ä»¶æˆåŠŸã€‚"));
+        ui->textBrowser->insertPlainText(QString::fromLocal8Bit("¶ÁÈ¡ÅäÖÃÎÄ¼ş³É¹¦¡£"));
 }
 
 void Clientdialog::retOpenConn(int i)
@@ -208,13 +211,13 @@ void Clientdialog::retOpenConn(int i)
     {
         case 0:
         #ifdef WINDOWS
-            QMessageBox::warning(this, QString::fromLocal8Bit("ç½‘ç»œé”™è¯¯"), QString::fromLocal8Bit("ç½‘ç»œè¿æ¥é”™è¯¯ï¼"));
+            QMessageBox::warning(this, QString::fromLocal8Bit("ÍøÂç´íÎó"), QString::fromLocal8Bit("ÍøÂçÁ¬½Ó´íÎó£¡"));
         #endif
-            ui->textBrowser->insertPlainText( QString::fromLocal8Bit("ç½‘ç»œè¿æ¥é”™è¯¯ï¼\n"));
+            ui->textBrowser->insertPlainText( QString::fromLocal8Bit("ÍøÂçÁ¬½Ó´íÎó£¡\n"));
             ui->textBrowser->moveCursor(QTextCursor::End);
             break;
         case 1:
-            ui->textBrowser->insertPlainText( QString::fromLocal8Bit("ç½‘ç»œè¿æ¥æˆåŠŸ...\n"));
+            ui->textBrowser->insertPlainText( QString::fromLocal8Bit("ÍøÂçÁ¬½Ó³É¹¦...\n"));
             ui->textBrowser->moveCursor(QTextCursor::End);
             break;
     }
@@ -226,11 +229,11 @@ void Clientdialog::retCloseConn(int i)
     {
         case 0:
         #ifdef WINDOWS
-            QMessageBox::warning(this, QString::fromLocal8Bit("ç½‘ç»œé”™è¯¯"), QString::fromLocal8Bit("ç½‘ç»œè¿æ¥é”™è¯¯ï¼"));
+            QMessageBox::warning(this, QString::fromLocal8Bit("ÍøÂç´íÎó"), QString::fromLocal8Bit("ÍøÂçÁ¬½Ó´íÎó£¡"));
         #endif
             break;
         case 1:
-            ui->textBrowser->insertPlainText( QString::fromLocal8Bit("ç½‘ç»œè¿æ¥æ–­å¼€...\n"));
+            ui->textBrowser->insertPlainText( QString::fromLocal8Bit("ÍøÂçÁ¬½Ó¶Ï¿ª...\n"));
             ui->textBrowser->moveCursor(QTextCursor::End);
             break;
     }
@@ -352,12 +355,12 @@ void Clientdialog::on_pushButton_save_pressed()
     emit setIP(ip);
 }
 
-//æ‰“å¼€æ–‡ä»¶
+//´ò¿ªÎÄ¼ş
 void Clientdialog::open_file()
 {
-    QDateTime qtimeObj = QDateTime::currentDateTime();//è·å–æ—¶é—´
+    QDateTime qtimeObj = QDateTime::currentDateTime();//»ñÈ¡Ê±¼ä
     QString alltext;
-    //åˆ›å»ºnewifiæ–‡ä»¶å¤¹
+    //´´½¨newifiÎÄ¼ş¼Ğ
     QDir *folder = new QDir;
     bool exist = folder->exists("/storage/emulated/0/newifi");
     if(exist)
@@ -369,7 +372,7 @@ void Clientdialog::open_file()
     }
     else
     {
-        //åˆ›å»ºæ–‡ä»¶å¤¹
+        //´´½¨ÎÄ¼ş¼Ğ
         bool ok = folder->mkdir("/storage/emulated/0/newifi");
         if(ok){
 #ifdef WINDOWS
@@ -385,7 +388,7 @@ void Clientdialog::open_file()
         }
     }
 
-    //è¯»å–newifiå†…çš„æ–‡ä»¶
+    //¶ÁÈ¡newifiÄÚµÄÎÄ¼ş
     QString fileName;
     fileName = tr("/storage/emulated/0/newifi/data.txt");
 
@@ -393,7 +396,7 @@ void Clientdialog::open_file()
     if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {
 #ifdef WINDOWS
-       QMessageBox::warning(this,tr("é”™è¯¯"),tr("æ‰“å¼€æ–‡ä»¶å¤±è´¥ï¼Œæ•°æ®ä¿å­˜å¤±è´¥"));
+       QMessageBox::warning(this,tr("´íÎó"),tr("´ò¿ªÎÄ¼şÊ§°Ü£¬Êı¾İ±£´æÊ§°Ü"));
 #endif
        qDebug() << "Open file fail, save data fail.";
 
@@ -404,7 +407,7 @@ void Clientdialog::open_file()
        if(!file.isReadable())
        {
 #ifdef WINDOWS
-           QMessageBox::warning(this,tr("é”™è¯¯"),tr("è¯¥æ–‡ä»¶ä¸å¯è¯»ï¼Œæ•°æ®ä¿å­˜å¤±è´¥"));
+           QMessageBox::warning(this,tr("´íÎó"),tr("¸ÃÎÄ¼ş²»¿É¶Á£¬Êı¾İ±£´æÊ§°Ü"));
 #endif
            qDebug() << "Read file fail.";
        }
@@ -430,7 +433,7 @@ void Clientdialog::open_file()
            }
 
 #ifdef WINDOWS
-           QMessageBox::warning(this,tr("ä¿¡æ¯"),tr("ä¿¡æ¯å­˜å‚¨æˆåŠŸï¼\nå¯åœ¨ç³»ç»Ÿæ ¹ç›®å½•æ–‡ä»¶'newifi'æ–‡ä»¶å¤¹ä¸­æŸ¥çœ‹ï¼"));
+           QMessageBox::warning(this,tr("ĞÅÏ¢"),tr("ĞÅÏ¢´æ´¢³É¹¦£¡\n¿ÉÔÚÏµÍ³¸ùÄ¿Â¼ÎÄ¼ş'newifi'ÎÄ¼ş¼ĞÖĞ²é¿´£¡"));
 #endif
        }
     }
@@ -438,10 +441,10 @@ void Clientdialog::open_file()
     file.close();
 }
 
-//å­˜å‚¨æ–‡ä»¶
+//´æ´¢ÎÄ¼ş
 void Clientdialog::save_file()
 {
-    //è¯»å–newifiå†…çš„æ–‡ä»¶
+    //¶ÁÈ¡newifiÄÚµÄÎÄ¼ş
     QString fileName;
     fileName = tr("/storage/emulated/0/newifi/data.txt");
 
@@ -449,7 +452,7 @@ void Clientdialog::save_file()
     if(!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {
 #ifdef WINDOWS
-       QMessageBox::warning(this,tr("é”™è¯¯"),tr("æ‰“å¼€æ–‡ä»¶å¤±è´¥ï¼Œæ•°æ®ä¿å­˜å¤±è´¥"));
+       QMessageBox::warning(this,tr("´íÎó"),tr("´ò¿ªÎÄ¼şÊ§°Ü£¬Êı¾İ±£´æÊ§°Ü"));
 #endif
        qDebug() << "Open file fail, save data fail.";
 
@@ -460,7 +463,7 @@ void Clientdialog::save_file()
        if(!file.isReadable())
        {
 #ifdef WINDOWS
-           QMessageBox::warning(this,tr("é”™è¯¯"),tr("è¯¥æ–‡ä»¶ä¸å¯è¯»ï¼Œæ•°æ®ä¿å­˜å¤±è´¥"));
+           QMessageBox::warning(this,tr("´íÎó"),tr("¸ÃÎÄ¼ş²»¿É¶Á£¬Êı¾İ±£´æÊ§°Ü"));
 #endif
            qDebug() << "Read file fail.";
        }
@@ -471,7 +474,7 @@ void Clientdialog::save_file()
            out<<ip<<endl<<QObject::tr("\n data end");
 
 #ifdef WINDOWS
-           QMessageBox::warning(this,tr("ä¿¡æ¯"),tr("ä¿¡æ¯å­˜å‚¨æˆåŠŸï¼\nå¯åœ¨ç³»ç»Ÿæ ¹ç›®å½•æ–‡ä»¶'newifi'æ–‡ä»¶å¤¹ä¸­æŸ¥çœ‹ï¼"));
+           QMessageBox::warning(this,tr("ĞÅÏ¢"),tr("ĞÅÏ¢´æ´¢³É¹¦£¡\n¿ÉÔÚÏµÍ³¸ùÄ¿Â¼ÎÄ¼ş'newifi'ÎÄ¼ş¼ĞÖĞ²é¿´£¡"));
 #endif
            qDebug() << "Save file success!";
        }
@@ -480,7 +483,7 @@ void Clientdialog::save_file()
     file.close();
 }
 
-//ç”³è¯·è¯»å†™æ–‡ä»¶æƒé™
+//ÉêÇë¶ÁĞ´ÎÄ¼şÈ¨ÏŞ
 bool Clientdialog::checkPermission() {
     QtAndroid::PermissionResult r = QtAndroid::checkPermission("android.permission.WRITE_EXTERNAL_STORAGE");
     if(r == QtAndroid::PermissionResult::Denied) {

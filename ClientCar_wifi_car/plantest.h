@@ -18,7 +18,7 @@ public:
        int       len;          //数据包长度,4位
        int       cmd;          //操作码，1位
        int       fd;           //标识客户端，4位
-       char      buff[10];   //数据包
+       char      buff[10];     //数据包
     }elem;
 
 
@@ -41,14 +41,14 @@ public:
     int isConn = 0;
 
     QString ip;
-    int port;
-
     QString routerIP;
+    int port;
 
     QClientTCP *tcpsocket = NULL;
     bool p_connect = false;
 
     void sleep(int s);
+    bool get_p_connect();
     void initTcpSocket();
 
     int make_packet(ELEM *elem);  //组包

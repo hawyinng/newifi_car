@@ -37,6 +37,10 @@ void PlanTest::sleep(int s)
         //QCoreApplication::processEvents();
 }
 
+bool PlanTest::get_p_connect(){
+    return this->p_connect;
+}
+
 int PlanTest::openfile()
 {
     QFile file(QString("./config.txt"));
