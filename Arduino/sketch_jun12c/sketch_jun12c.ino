@@ -7,6 +7,8 @@ int PIN_CAR_IN4 = 7;
 
 char incomingByte;
 
+static void(* resetFunc) (void) = 0x0000;  //板子长时间不运行，loop循环停了，按下复位键，硬件指针复位。
+
 void doForward() {  
   //Serial.println("doForward\n");
   //front motor
@@ -19,6 +21,7 @@ void doForward() {
 
 void doBackward() {  
   //Serial.println("doBackward\n");
+  //turn right
   digitalWrite(PIN_CAR_IN1,LOW);  
   digitalWrite(PIN_CAR_IN2,LOW); 
   digitalWrite(PIN_CAR_IN3,LOW);  
@@ -35,7 +38,8 @@ void doLeft() {
 } 
 
 void doLeft_back() {  
-  //Serial.println("doLeft_back\n");
+  //Serial.println("doLeft\n");
+  //trun left-forward
   digitalWrite(PIN_CAR_IN1,HIGH);  
   digitalWrite(PIN_CAR_IN2,HIGH);   
   digitalWrite(PIN_CAR_IN3,LOW);  
@@ -52,7 +56,8 @@ void doRight() {
 } 
 
 void doRight_back() {  
-  //Serial.println("doRight_back\n");
+  //trun right-forward
+  //Serial.println("doRight\n");
   digitalWrite(PIN_CAR_IN1,LOW);  
   digitalWrite(PIN_CAR_IN2,HIGH);
   digitalWrite(PIN_CAR_IN3,LOW);  
@@ -72,14 +77,18 @@ void setup()
   pinMode(PIN_CAR_IN1,OUTPUT);  
   pinMode(PIN_CAR_IN2,OUTPUT);  
   pinMode(PIN_CAR_IN3,OUTPUT);  
-  pinMode(PIN_CAR_IN4,OUTPUT);  
+  pinMode(PIN_CAR_IN4,OUTPUT);
   
-  //digitalWrite(PIN_CAR_IN1, OUTPUT);  
-  //digitalWrite(PIN_CAR_IN2, OUTPUT);  
+  Serial.begin(9600); 
+  
+  digitalWrite(PIN_CAR_IN1, HIGH);
+  delay(100);                  
+  digitalWrite(PIN_CAR_IN1, LOW);
+  delay(100);
+  //resetFunc();
+  //digitalWrite(PIN_CAR_IN2, OUTPUT);                  
   //digitalWrite(PIN_CAR_IN3, OUTPUT);  
   //digitalWrite(PIN_CAR_IN4, OUTPUT);  
-  
-  Serial.begin(9600);  
 }  
   
 void loop()  
@@ -89,6 +98,8 @@ void loop()
   if (Serial.available() > 0) {
     // read the incoming byte:
     while((incomingByte=Serial.read())>=0){
+    //while((incomingByte=Serial.peek())>0){
+      //incomingByte = Serial.read();
       switch (incomingByte) {
         case '1':
           // statements
