@@ -7,7 +7,7 @@ int PIN_CAR_IN4 = 7;
 
 char incomingByte;
 
-static void(* resetFunc) (void) = 0x0000;  //板子长时间不运行，loop循环停了，按下复位键，硬件指针复位。
+static void(* resetFunc) (void) = 0x0000;  //板子长时间不运行，按下复位键，重启loop循环，硬件指针复位。
 
 void doForward() {  
   //Serial.println("doForward\n");
